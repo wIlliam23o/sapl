@@ -21,21 +21,17 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
 from sapl import settings
-from sapl.api.forms import (AutorChoiceFilterSet, AutoresPossiveisFilterSet,
-                            AutorSearchForFieldFilterSet)
-from sapl.api.permissions import SaplModelPermissions
-from sapl.api.serializers import (AutorChoiceSerializer, AutorSerializer,
-                                  ChoiceSerializer,
-                                  ModelChoiceSerializer,
-                                  SessaoPlenariaOldSerializer,
-                                  MateriaLegislativaOldSerializer)
-from sapl.base.models import TipoAutor, Autor
-from sapl.comissoes.models import Comissao
+from sapl.base.models import Autor, TipoAutor
 from sapl.materia.models import MateriaLegislativa, Proposicao
-from sapl.parlamentares.models import Parlamentar
-from sapl.rules.map_rules import __base__
 from sapl.sessao.models import SessaoPlenaria
 from sapl.utils import SaplGenericRelation
+from sapl.api.serializers import ModelChoiceSerializer, AutorChoiceSerializer,\
+    AutorSerializer, ChoiceSerializer, MateriaLegislativaOldSerializer,\
+    SessaoPlenariaOldSerializer
+from sapl.api.forms import AutorChoiceFilterSet, AutorSearchForFieldFilterSet,\
+    AutoresPossiveisFilterSet
+from sapl.parlamentares.models import Parlamentar
+from sapl.comissoes.models import Comissao
 
 
 class ModelChoiceView(ListAPIView):
