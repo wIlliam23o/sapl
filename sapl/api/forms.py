@@ -5,12 +5,12 @@ from django.forms.fields import CharField, MultiValueField
 from django.forms.widgets import MultiWidget, TextInput
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from django_filters.filters import DateFilter, MethodFilter, ModelChoiceFilter
+from django_filters.filters import MethodFilter, ModelChoiceFilter, DateFilter
 from rest_framework import serializers
 from rest_framework.compat import django_filters
 from rest_framework.filters import FilterSet
 
-from sapl.base.models import Autor, TipoAutor
+from sapl.base.models import TipoAutor, Autor
 from sapl.parlamentares.models import Legislatura
 from sapl.utils import generic_relations_for_model
 
@@ -138,9 +138,9 @@ class AutoresPossiveisFilterSet(FilterSet):
         return queryset
 
     def filter_tipo(self, queryset, value):
-        
         try:
-            self.logger.debug("Tentando obter TipoAutor correspondente à pk {}.".format(value))
+            self.logger.debug(
+                "Tentando obter TipoAutor correspondente à pk {}.".format(value))
             tipo = TipoAutor.objects.get(pk=value)
         except:
             self.logger.error("TipoAutor(pk={}) inexistente.".format(value))

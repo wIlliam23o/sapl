@@ -2,12 +2,14 @@ from django.conf import settings
 from django.conf.urls import include, url
 from rest_framework.routers import DefaultRouter
 
+from sapl.api.saplmobile import urls as saplmobile_urls
 from sapl.api.views import (AutoresPossiveisListView, AutoresProvaveisListView,
                             AutorListView, MateriaLegislativaViewSet,
                             ModelChoiceView, SessaoPlenariaViewSet,
                             SaplSetViews)
 
 from .apps import AppConfig
+
 
 app_name = AppConfig.name
 
@@ -44,6 +46,7 @@ if settings.DEBUG:
         url(r'^docs', include('rest_framework_docs.urls')), ]
 
 urlpatterns = [
+    url(r'^api/', include(saplmobile_urls)),
     url(r'^api/', include(urlpatterns_api)),
     url(r'^api/', include(urlpatterns_router)),
 

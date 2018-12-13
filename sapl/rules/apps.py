@@ -1,8 +1,7 @@
 from builtins import LookupError
 import logging
 
-import django
-from django.apps import apps
+from django import apps
 from django.contrib.auth import get_user_model
 from django.contrib.auth.management import _get_all_permissions
 from django.core import exceptions
@@ -18,7 +17,7 @@ from sapl.rules import (SAPL_GROUP_ADMINISTRATIVO, SAPL_GROUP_COMISSOES,
                         SAPL_GROUP_SESSAO)
 
 
-class AppConfig(django.apps.AppConfig):
+class AppConfig(apps.AppConfig):
     name = 'sapl.rules'
     label = 'rules'
     verbose_name = _('Regras de Acesso')
@@ -34,10 +33,9 @@ def create_proxy_permissions(
 
     try:
         logger.info("Tentando obter modelo de permissão do app.")
-        Permission = apps.get_model('auth', 'Permission')
+        Permission = apps.apps.get_model('auth', 'Permission')
     except LookupError as e:
         logger.error(str(e))
-        return
 
     if not router.allow_migrate_model(using, Permission):
         return

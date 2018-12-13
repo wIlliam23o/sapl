@@ -1,19 +1,18 @@
-
+from datetime import datetime
 import logging
 
 from django import apps
-from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import Q
 from django.db.models import Q
 from django.http import Http404
 from django.utils.decorators import classonlymethod
 from django.utils.text import capfirst
+from django.utils.timezone import utc
 from django.utils.translation import ugettext_lazy as _
 from django_filters.utils import resolve_field
 from rest_framework import serializers as rest_serializers
 from rest_framework.decorators import list_route, detail_route
-from rest_framework.filters import DjangoFilterBackend, FilterSet
+from rest_framework.filters import FilterSet, DjangoFilterBackend
 from rest_framework.generics import ListAPIView
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.permissions import (IsAuthenticated,
@@ -21,6 +20,7 @@ from rest_framework.permissions import (IsAuthenticated,
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
+from sapl import settings
 from sapl.api.forms import (AutorChoiceFilterSet, AutoresPossiveisFilterSet,
                             AutorSearchForFieldFilterSet)
 from sapl.api.permissions import SaplModelPermissions
@@ -190,7 +190,6 @@ class AutoresProvaveisListView(ListAPIView):
     serializer_class = ChoiceSerializer
 
     def get_queryset(self):
-
         params = {'content_type__isnull': False}
         username = self.request.user.username
         tipo = ''
@@ -200,7 +199,6 @@ class AutoresProvaveisListView(ListAPIView):
                 params['id'] = tipo
         except Exception as e:
             self.logger.error('user= ' + username + '. ' + str(e))
-            pass
 
         tipos = TipoAutor.objects.filter(**params)
 
