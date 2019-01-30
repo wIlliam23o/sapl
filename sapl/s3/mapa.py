@@ -19,26 +19,26 @@ from sapl.s3.adjust import adjust_tipoafastamento, adjust_tipo_comissao,\
     adjust_expediente_ordem, adjust_registrovotacao_parlamentar,\
     adjust_normajuridica, adjust_normarelacionada, adjust_participacao
 from sapl.s3.models import (
-    _AcompMateria, _Afastamento, _Anexada, _AssuntoNorma, _Autor, _Autoria,
-    _CargoComissao, _CargoMesa, _Comissao, _ComposicaoComissao, _ComposicaoMesa,
-    _CronometroAparte, _CronometroDiscurso, _CronometroOrdem, _DespachoInicial,
-    _Dispositivo, _DocumentoAcessorio, _DocumentoAcessorioAdministrativo,
-    _DocumentoAdministrativo, _ExpedienteMateria, _ExpedienteSessaoPlenaria,
-    _Filiacao, _LegislacaoCitada, _Legislatura, _Localidade, _Mandato,
-    _MateriaLegislativa, _MesaSessaoPlenaria, _NormaJuridica, _Numeracao,
-    _OradoresExpediente, _OrdemDia, _OrdemDiaPresenca, _Orgao, _Origem,
-    _Parlamentar, _Partido, _PeriodoCompComissao, _PeriodoCompMesa, _Proposicao,
-    _Protocolo, _RegimeTramitacao, _RegistroPresencaOrdem,
-    _RegistroPresencaSessao, _RegistroVotacao, _RegistroVotacaoParlamentar,
-    _Relatoria, _ReuniaoComissao, _SessaoLegislativa, _SessaoPlenaria,
-    _SessaoPlenariaPresenca, _StatusTramitacao, _StatusTramitacaoAdministrativo,
-    _StatusTramitacaoParecer, _TipoAfastamento, _TipoAutor, _TipoComissao,
-    _TipoDependente, _TipoDocumento, _TipoDocumentoAdministrativo,
-    _TipoExpediente, _TipoFimRelatoria, _TipoMateriaLegislativa,
-    _TipoNormaJuridica, _TipoParecer, _TipoProposicao, _TipoResultadoVotacao,
-    _TipoSessaoPlenaria, _TipoSituacaoMateria, _TipoSituacaoMilitar,
-    _TipoSituacaoNorma, _Tramitacao, _TramitacaoAdministrativo,
-    _TramitacaoParecer, _UnidadeTramitacao, _VinculoNormaJuridica)
+    S3_AcompMateria, S3_Afastamento, S3_Anexada, S3_AssuntoNorma, S3_Autor, S3_Autoria,
+    S3_CargoComissao, S3_CargoMesa, S3_Comissao, S3_ComposicaoComissao, S3_ComposicaoMesa,
+    S3_CronometroAparte, S3_CronometroDiscurso, S3_CronometroOrdem, S3_DespachoInicial,
+    S3_Dispositivo, S3_DocumentoAcessorio, S3_DocumentoAcessorioAdministrativo,
+    S3_DocumentoAdministrativo, S3_ExpedienteMateria, S3_ExpedienteSessaoPlenaria,
+    S3_Filiacao, S3_LegislacaoCitada, S3_Legislatura, S3_Localidade, S3_Mandato,
+    S3_MateriaLegislativa, S3_MesaSessaoPlenaria, S3_NormaJuridica, S3_Numeracao,
+    S3_OradoresExpediente, S3_OrdemDia, S3_OrdemDiaPresenca, S3_Orgao, S3_Origem,
+    S3_Parlamentar, S3_Partido, S3_PeriodoCompComissao, S3_PeriodoCompMesa, S3_Proposicao,
+    S3_Protocolo, S3_RegimeTramitacao, S3_RegistroPresencaOrdem,
+    S3_RegistroPresencaSessao, S3_RegistroVotacao, S3_RegistroVotacaoParlamentar,
+    S3_Relatoria, S3_ReuniaoComissao, S3_SessaoLegislativa, S3_SessaoPlenaria,
+    S3_SessaoPlenariaPresenca, S3_StatusTramitacao, S3_StatusTramitacaoAdministrativo,
+    S3_StatusTramitacaoParecer, S3_TipoAfastamento, S3_TipoAutor, S3_TipoComissao,
+    S3_TipoDependente, S3_TipoDocumento, S3_TipoDocumentoAdministrativo,
+    S3_TipoExpediente, S3_TipoFimRelatoria, S3_TipoMateriaLegislativa,
+    S3_TipoNormaJuridica, S3_TipoParecer, S3_TipoProposicao, S3_TipoResultadoVotacao,
+    S3_TipoSessaoPlenaria, S3_TipoSituacaoMateria, S3_TipoSituacaoMilitar,
+    S3_TipoSituacaoNorma, S3_Tramitacao, S3_TramitacaoAdministrativo,
+    S3_TramitacaoParecer, S3_UnidadeTramitacao, S3_VinculoNormaJuridica)
 from sapl.sessao.models import Bancada, Bloco, CargoBancada, ExpedienteMateria, ExpedienteSessao, IntegranteMesa, OcorrenciaSessao, Orador, OradorExpediente, OrdemDia, PresencaOrdemDia, RegistroVotacao, ResumoOrdenacao, SessaoPlenaria, SessaoPlenariaPresenca, TipoExpediente, TipoResultadoVotacao, TipoSessaoPlenaria, VotoParlamentar
 
 
@@ -108,7 +108,7 @@ mapa = [
     },
     {
         'name': '_legislatura',
-        's30_model': _Legislatura,
+        's30_model': S3_Legislatura,
         's31_model': Legislatura,
         'fields': {
             'id': 'num_legislatura',
@@ -121,7 +121,7 @@ mapa = [
     },
     {
         'name': '_partido',
-        's30_model': _Partido,
+        's30_model': S3_Partido,
         's31_model': Partido,
         'fields': {
             'id': 'cod_partido',
@@ -134,7 +134,7 @@ mapa = [
     },
     {
         'name': '_tipodependente',
-        's30_model': _TipoDependente,
+        's30_model': S3_TipoDependente,
         's31_model': TipoDependente,
         'fields': {
             'id': 'tip_dependente',
@@ -144,7 +144,7 @@ mapa = [
     },
     {
         'name': '_tipoafastamento',
-        's30_model': _TipoAfastamento,
+        's30_model': S3_TipoAfastamento,
         's31_model': TipoAfastamento,
         'fields': {
             'id': 'tip_afastamento',
@@ -156,7 +156,7 @@ mapa = [
     },
     {
         'name': '_cargomesa',
-        's30_model': _CargoMesa,
+        's30_model': S3_CargoMesa,
         's31_model': CargoMesa,
         'fields': {
             'id': 'cod_cargo',
@@ -167,7 +167,7 @@ mapa = [
     },
     {
         'name': '_tipocomissao',
-        's30_model': _TipoComissao,
+        's30_model': S3_TipoComissao,
         's31_model': TipoComissao,
         'fields': {
             'id': 'tip_comissao',
@@ -182,7 +182,7 @@ mapa = [
 
     {
         'name': '_periodocompcomissao',
-        's30_model': _PeriodoCompComissao,
+        's30_model': S3_PeriodoCompComissao,
         's31_model': Periodo,
         'fields': {
             'id': 'cod_periodo_comp',
@@ -193,7 +193,7 @@ mapa = [
     },
     {
         'name': '_cargocomissao',
-        's30_model': _CargoComissao,
+        's30_model': S3_CargoComissao,
         's31_model': CargoComissao,
         'fields': {
             'id': 'cod_cargo',
@@ -204,7 +204,7 @@ mapa = [
     },
     {
         'name': '_tipomaterialegislativa',
-        's30_model': _TipoMateriaLegislativa,
+        's30_model': S3_TipoMateriaLegislativa,
         's31_model': TipoMateriaLegislativa,
         'fields': {
             'id': 'tip_materia',
@@ -215,7 +215,7 @@ mapa = [
     },
     {
         'name': '_statustramitacao',
-        's30_model': _StatusTramitacao,
+        's30_model': S3_StatusTramitacao,
         's31_model': StatusTramitacao,
         'fields': {
             'id': 'cod_status',
@@ -227,7 +227,7 @@ mapa = [
     },
     {
         'name': '_statustramitacaoadministrativo',
-        's30_model': _StatusTramitacaoAdministrativo,
+        's30_model': S3_StatusTramitacaoAdministrativo,
         's31_model': StatusTramitacaoAdministrativo,
         'fields': {
             'id': 'cod_status',
@@ -240,7 +240,7 @@ mapa = [
 
     {
         'name': '_tipoautor',
-        's30_model': _TipoAutor,
+        's30_model': S3_TipoAutor,
         's31_model': TipoAutor,
         'fields': {
             'id': 'tip_autor',
@@ -251,7 +251,7 @@ mapa = [
     },
     {
         'name': '_tipodocumento',
-        's30_model': _TipoDocumento,
+        's30_model': S3_TipoDocumento,
         's31_model': TipoDocumento,
         'fields': {
             'id': 'tip_documento',
@@ -261,7 +261,7 @@ mapa = [
     },
     {
         'name': '_tipodocumentoadministrativo',
-        's30_model': _TipoDocumentoAdministrativo,
+        's30_model': S3_TipoDocumentoAdministrativo,
         's31_model': TipoDocumentoAdministrativo,
         'fields': {
             'id': 'tip_documento',
@@ -272,7 +272,7 @@ mapa = [
     },
     {
         'name': '_tipoexpediente',
-        's30_model': _TipoExpediente,
+        's30_model': S3_TipoExpediente,
         's31_model': TipoExpediente,
         'fields': {
             'id': 'cod_expediente',
@@ -282,7 +282,7 @@ mapa = [
     },
     {
         'name': '_tipofimrelatoria',
-        's30_model': _TipoFimRelatoria,
+        's30_model': S3_TipoFimRelatoria,
         's31_model': TipoFimRelatoria,
         'fields': {
             'id': 'tip_fim_relatoria',
@@ -292,7 +292,7 @@ mapa = [
     },
     {
         'name': '_tiponormajuridica',
-        's30_model': _TipoNormaJuridica,
+        's30_model': S3_TipoNormaJuridica,
         's31_model': TipoNormaJuridica,
         'fields': {
             'id': 'tip_norma',
@@ -304,7 +304,7 @@ mapa = [
     },
     {
         'name': '_tiporesultadovotacao',
-        's30_model': _TipoResultadoVotacao,
+        's30_model': S3_TipoResultadoVotacao,
         's31_model': TipoResultadoVotacao,
         'fields': {
             'id': 'tip_resultado_votacao',
@@ -315,7 +315,7 @@ mapa = [
     },
     {
         'name': '_tiposessaoplenaria',
-        's30_model': _TipoSessaoPlenaria,
+        's30_model': S3_TipoSessaoPlenaria,
         's31_model': TipoSessaoPlenaria,
         'fields': {
             'id': 'tip_sessao',
@@ -326,7 +326,7 @@ mapa = [
     },
     {
         'name': '_assuntonorma',
-        's30_model': _AssuntoNorma,
+        's30_model': S3_AssuntoNorma,
         's31_model': AssuntoNorma,
         'fields': {
             'id': 'cod_assunto',
@@ -338,7 +338,7 @@ mapa = [
     },
     {
         'name': '_orgao',
-        's30_model': _Orgao,
+        's30_model': S3_Orgao,
         's31_model': Orgao,
         'fields': {
             'id': 'cod_orgao',
@@ -353,7 +353,7 @@ mapa = [
     },
     {
         'name': '_origem',
-        's30_model': _Origem,
+        's30_model': S3_Origem,
         's31_model': Origem,
         'fields': {
             'id': 'cod_origem',
@@ -364,7 +364,7 @@ mapa = [
     },
     {
         'name': '_regimetramitacao',
-        's30_model': _RegimeTramitacao,
+        's30_model': S3_RegimeTramitacao,
         's31_model': RegimeTramitacao,
         'fields': {
             'id': 'cod_regime_tramitacao',
@@ -374,7 +374,7 @@ mapa = [
     },
     {
         'name': '_tiposituacaomilitar',
-        's30_model': _TipoSituacaoMilitar,
+        's30_model': S3_TipoSituacaoMilitar,
         's31_model': SituacaoMilitar,
         'fields': {
             'id': 'tip_situacao_militar',
@@ -384,7 +384,7 @@ mapa = [
     },
     {
         'name': '_comissao',
-        's30_model': _Comissao,
+        's30_model': S3_Comissao,
         's31_model': Comissao,
         'fields': {
             'id': 'cod_comissao',
@@ -414,7 +414,7 @@ mapa = [
     },
     {
         'name': '_sessaolegislativa',
-        's30_model': _SessaoLegislativa,
+        's30_model': S3_SessaoLegislativa,
         's31_model': SessaoLegislativa,
         'fields': {
             'id': 'cod_sessao_leg',
@@ -430,7 +430,7 @@ mapa = [
     },
     {
         'name': '_parlamentar',
-        's30_model': _Parlamentar,
+        's30_model': S3_Parlamentar,
         's31_model': Parlamentar,
         'fields': {
             'id': 'cod_parlamentar',
@@ -462,7 +462,7 @@ mapa = [
     },
     {
         'name': '_filiacao',
-        's30_model': _Filiacao,
+        's30_model': S3_Filiacao,
         's31_model': Filiacao,
         'fields': {
             'id': 'cod_filiacao',
@@ -475,7 +475,7 @@ mapa = [
     },
     {
         'name': '_composicaomesa',
-        's30_model': _ComposicaoMesa,
+        's30_model': S3_ComposicaoMesa,
         's31_model': ComposicaoMesa,
         'fields': {
             'id': 'cod_composicao',
@@ -487,7 +487,7 @@ mapa = [
     },
     {
         'name': '_mandato',
-        's30_model': _Mandato,
+        's30_model': S3_Mandato,
         's31_model': Mandato,
         'fields': {
             'id': 'cod_mandato',
@@ -509,7 +509,7 @@ mapa = [
 
     {
         'name': '_composicaocomissao',
-        's30_model': _ComposicaoComissao,
+        's30_model': S3_ComposicaoComissao,
         's31_model': Participacao,
         'fields': {
             'id': 'cod_comp_comissao',
@@ -520,7 +520,7 @@ mapa = [
 
     {
         'name': '_autor',
-        's30_model': _Autor,
+        's30_model': S3_Autor,
         's31_model': Autor,
         'fields': {
             'id': 'cod_autor',
@@ -533,7 +533,7 @@ mapa = [
     },
     {
         'name': '_unidadetramitacao',
-        's30_model': _UnidadeTramitacao,
+        's30_model': S3_UnidadeTramitacao,
         's31_model': UnidadeTramitacao,
         'fields': {
             'id': 'cod_unid_tramitacao',
@@ -545,7 +545,7 @@ mapa = [
     },
     {
         'name': '_sessaoplenaria',
-        's30_model': _SessaoPlenaria,
+        's30_model': S3_SessaoPlenaria,
         's31_model': SessaoPlenaria,
         'fields': {
             'id': 'cod_sessao_plen',
@@ -566,7 +566,7 @@ mapa = [
     },
     {
         'name': '_expedientesessaoplenaria',
-        's30_model': _ExpedienteSessaoPlenaria,
+        's30_model': S3_ExpedienteSessaoPlenaria,
         's31_model': ExpedienteSessao,
         'fields': {
             'id': 'cod_exp',
@@ -578,7 +578,7 @@ mapa = [
     },
     {
         'name': '_mesasessaoplenaria',
-        's30_model': _MesaSessaoPlenaria,
+        's30_model': S3_MesaSessaoPlenaria,
         's31_model': IntegranteMesa,
         'fields': {
             'id': 'cod_integrante',
@@ -590,7 +590,7 @@ mapa = [
     },
     {
         'name': '_sessaoplenariapresenca',
-        's30_model': _SessaoPlenariaPresenca,
+        's30_model': S3_SessaoPlenariaPresenca,
         's31_model': SessaoPlenariaPresenca,
         'fields': {
             'id': 'cod_presenca',
@@ -602,7 +602,7 @@ mapa = [
     },
     {
         'name': '_ordemdiapresenca',
-        's30_model': _OrdemDiaPresenca,
+        's30_model': S3_OrdemDiaPresenca,
         's31_model': PresencaOrdemDia,
         'fields': {
             'id': 'cod_presenca_ordem_dia',
@@ -613,7 +613,7 @@ mapa = [
     },
     {
         'name': '_protocolo',
-        's30_model': _Protocolo,
+        's30_model': S3_Protocolo,
         's31_model': Protocolo,
         'fields': {
             'id': 'cod_protocolo',
@@ -641,7 +641,7 @@ mapa = [
     },
     {
         'name': '_documentoadministrativo',
-        's30_model': _DocumentoAdministrativo,
+        's30_model': S3_DocumentoAdministrativo,
         's31_model': DocumentoAdministrativo,
         'fields': {
             'id': 'cod_documento',
@@ -662,7 +662,7 @@ mapa = [
     },
     {
         'name': '_documentoacessorioadministrativo',
-        's30_model': _DocumentoAcessorioAdministrativo,
+        's30_model': S3_DocumentoAcessorioAdministrativo,
         's31_model': DocumentoAcessorioAdministrativo,
         'fields': {
             'id': 'cod_documento_acessorio',
@@ -679,7 +679,7 @@ mapa = [
     },
     {
         'name': '_tramitacaoadministrativo',
-        's30_model': _TramitacaoAdministrativo,
+        's30_model': S3_TramitacaoAdministrativo,
         's31_model': TramitacaoAdministrativo,
         'fields': {
             'id': 'cod_tramitacao',
@@ -696,7 +696,7 @@ mapa = [
     },
     {
         'name': '_materialegislativa',
-        's30_model': _MateriaLegislativa,
+        's30_model': S3_MateriaLegislativa,
         's31_model': MateriaLegislativa,
         'fields': {
             'id': 'cod_materia',
@@ -729,7 +729,7 @@ mapa = [
     },
     {
         'name': '_anexada',
-        's30_model': _Anexada,
+        's30_model': S3_Anexada,
         's31_model': Anexada,
         'fields': {
             'id': 'cod_anexada',
@@ -742,7 +742,7 @@ mapa = [
     },
     {
         'name': '_autoria',
-        's30_model': _Autoria,
+        's30_model': S3_Autoria,
         's31_model': Autoria,
         'fields': {
             'id': 'cod_autoria',
@@ -755,7 +755,7 @@ mapa = [
 
     {
         'name': '_documentoacessorio',
-        's30_model': _DocumentoAcessorio,
+        's30_model': S3_DocumentoAcessorio,
         's31_model': DocumentoAcessorio,
         'fields': {
             'id': 'cod_documento',
@@ -772,7 +772,7 @@ mapa = [
     },
     {
         'name': '_tramitacao',
-        's30_model': _Tramitacao,
+        's30_model': S3_Tramitacao,
         's31_model': Tramitacao,
         'fields': {
             'id': 'cod_tramitacao',
@@ -792,7 +792,7 @@ mapa = [
     },
     {
         'name': '_expedientemateria',
-        's30_model': _ExpedienteMateria,
+        's30_model': S3_ExpedienteMateria,
         's31_model': ExpedienteMateria,
         'fields': {
             'id': 'cod_ordem',
@@ -808,7 +808,7 @@ mapa = [
     },
     {
         'name': '_ordemdia',
-        's30_model': _OrdemDia,
+        's30_model': S3_OrdemDia,
         's31_model': OrdemDia,
         'fields': {
             'id': 'cod_ordem',
@@ -824,7 +824,7 @@ mapa = [
     },
     {
         'name': '_registrovotacao',
-        's30_model': _RegistroVotacao,
+        's30_model': S3_RegistroVotacao,
         's31_model': RegistroVotacao,
         'fields': {
             'id': 'cod_votacao',
@@ -841,7 +841,7 @@ mapa = [
 
     {
         'name': '_registrovotacaoparlamentar',
-        's30_model': _RegistroVotacaoParlamentar,
+        's30_model': S3_RegistroVotacaoParlamentar,
         's31_model': VotoParlamentar,
         'fields': {
             'id': 'cod_vot_parlamentar',
@@ -855,7 +855,7 @@ mapa = [
 
     {
         'name': '_normajuridica',
-        's30_model': _NormaJuridica,
+        's30_model': S3_NormaJuridica,
         's31_model': NormaJuridica,
         'fields': {
             'id': 'cod_norma',
@@ -881,7 +881,7 @@ mapa = [
     },
     {
         'name': '_legislacaocitada',
-        's30_model': _LegislacaoCitada,
+        's30_model': S3_LegislacaoCitada,
         's31_model': LegislacaoCitada,
         'fields': {
             'id': 'cod_legis_citada',
@@ -905,7 +905,7 @@ mapa = [
 
     {
         'name': '_vinculonormajuridica',
-        's30_model': _VinculoNormaJuridica,
+        's30_model': S3_VinculoNormaJuridica,
         's31_model': NormaRelacionada,
         'fields': {
             'id': 'cod_vinculo',
@@ -931,7 +931,7 @@ mapa_a_processar = [
 
     {
         'name': '_afastamento',
-        's30_model': _Afastamento,
+        's30_model': S3_Afastamento,
         's31_model': None,
         'fields': {
             '': 'cod_afastamento',
@@ -948,7 +948,7 @@ mapa_a_processar = [
     },
     {
         'name': '_cronometroaparte',
-        's30_model': _CronometroAparte,
+        's30_model': S3_CronometroAparte,
         's31_model': None,
         'fields': {
             '': 'id',
@@ -959,7 +959,7 @@ mapa_a_processar = [
     },
     {
         'name': '_cronometrodiscurso',
-        's30_model': _CronometroDiscurso,
+        's30_model': S3_CronometroDiscurso,
         's31_model': None,
         'fields': {
             '': 'id',
@@ -970,7 +970,7 @@ mapa_a_processar = [
     },
     {
         'name': '_cronometroordem',
-        's30_model': _CronometroOrdem,
+        's30_model': S3_CronometroOrdem,
         's31_model': None,
         'fields': {
             '': 'id',
@@ -981,7 +981,7 @@ mapa_a_processar = [
     },
     {
         'name': '_despachoinicial',
-        's30_model': _DespachoInicial,
+        's30_model': S3_DespachoInicial,
         's31_model': None,
         'fields': {
             '': 'id',
@@ -993,7 +993,7 @@ mapa_a_processar = [
     },
     {
         'name': '_dispositivo',
-        's30_model': _Dispositivo,
+        's30_model': S3_Dispositivo,
         's31_model': None,
         'fields': {
             '': 'cod_dispositivo',
@@ -1027,7 +1027,7 @@ mapa_a_processar = [
     },
     {
         'name': '_localidade',
-        's30_model': _Localidade,
+        's30_model': S3_Localidade,
         's31_model': None,
         'fields': {
             '': 'cod_localidade',
@@ -1042,7 +1042,7 @@ mapa_a_processar = [
 
     {
         'name': '_oradoresexpediente',
-        's30_model': _OradoresExpediente,
+        's30_model': S3_OradoresExpediente,
         's31_model': None,
         'fields': {
             '': 'id',
@@ -1056,7 +1056,7 @@ mapa_a_processar = [
 
     {
         'name': '_periodocompmesa',
-        's30_model': _PeriodoCompMesa,
+        's30_model': S3_PeriodoCompMesa,
         's31_model': None,
         'fields': {
             '': 'cod_periodo_comp',
@@ -1068,7 +1068,7 @@ mapa_a_processar = [
     },
     {
         'name': '_proposicao',
-        's30_model': _Proposicao,
+        's30_model': S3_Proposicao,
         's31_model': None,
         'fields': {
             '': 'cod_proposicao',
@@ -1087,7 +1087,7 @@ mapa_a_processar = [
     },
     {
         'name': '_regimetramitacao',
-        's30_model': _RegimeTramitacao,
+        's30_model': S3_RegimeTramitacao,
         's31_model': None,
         'fields': {
             '': 'cod_regime_tramitacao',
@@ -1097,7 +1097,7 @@ mapa_a_processar = [
     },
     {
         'name': '_registropresencaordem',
-        's30_model': _RegistroPresencaOrdem,
+        's30_model': S3_RegistroPresencaOrdem,
         's31_model': None,
         'fields': {
             '': 'cod_registro_pre',
@@ -1111,7 +1111,7 @@ mapa_a_processar = [
     },
     {
         'name': '_registropresencasessao',
-        's30_model': _RegistroPresencaSessao,
+        's30_model': S3_RegistroPresencaSessao,
         's31_model': None,
         'fields': {
             '': 'cod_registro_pre',

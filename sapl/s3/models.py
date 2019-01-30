@@ -11,7 +11,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-class _AcompMateria(models.Model):
+class S3_AcompMateria(models.Model):
     cod_cadastro = models.AutoField(primary_key=True)
     cod_materia = models.IntegerField()
     end_email = models.CharField(max_length=100)
@@ -24,7 +24,7 @@ class _AcompMateria(models.Model):
         unique_together = (('cod_materia', 'end_email'),)
 
 
-class _Afastamento(models.Model):
+class S3_Afastamento(models.Model):
     cod_afastamento = models.AutoField(primary_key=True)
     cod_parlamentar = models.IntegerField()
     cod_mandato = models.IntegerField()
@@ -41,7 +41,7 @@ class _Afastamento(models.Model):
         db_table = 'afastamento'
 
 
-class _AndamentoSessao(models.Model):
+class S3_AndamentoSessao(models.Model):
     cod_andamento_sessao = models.AutoField(primary_key=True)
     nom_andamento = models.CharField(max_length=100)
     ind_excluido = models.IntegerField()
@@ -51,7 +51,7 @@ class _AndamentoSessao(models.Model):
         db_table = 'andamento_sessao'
 
 
-class _Anexada(models.Model):
+class S3_Anexada(models.Model):
     cod_anexada = models.AutoField(primary_key=True)
     cod_materia_principal = models.IntegerField()
     cod_materia_anexada = models.IntegerField()
@@ -65,7 +65,7 @@ class _Anexada(models.Model):
         unique_together = (('cod_materia_principal', 'cod_materia_anexada'),)
 
 
-class _Apenso(models.Model):
+class S3_Apenso(models.Model):
     cod_materia_principal = models.IntegerField()
     cod_materia_apensada = models.IntegerField()
     dat_apensacao = models.DateField()
@@ -78,7 +78,7 @@ class _Apenso(models.Model):
         unique_together = (('cod_materia_principal', 'cod_materia_apensada'),)
 
 
-class _AssuntoMateria(models.Model):
+class S3_AssuntoMateria(models.Model):
     cod_assunto = models.IntegerField(primary_key=True)
     des_assunto = models.CharField(max_length=200)
     des_dispositivo = models.CharField(max_length=50)
@@ -89,7 +89,7 @@ class _AssuntoMateria(models.Model):
         db_table = 'assunto_materia'
 
 
-class _AssuntoNorma(models.Model):
+class S3_AssuntoNorma(models.Model):
     cod_assunto = models.AutoField(primary_key=True)
     des_assunto = models.CharField(max_length=50)
     des_estendida = models.CharField(max_length=250, blank=True, null=True)
@@ -100,7 +100,7 @@ class _AssuntoNorma(models.Model):
         db_table = 'assunto_norma'
 
 
-class _Autor(models.Model):
+class S3_Autor(models.Model):
     cod_autor = models.AutoField(primary_key=True)
     cod_partido = models.IntegerField(blank=True, null=True)
     cod_comissao = models.IntegerField(blank=True, null=True)
@@ -117,7 +117,7 @@ class _Autor(models.Model):
         db_table = 'autor'
 
 
-class _Autoria(models.Model):
+class S3_Autoria(models.Model):
     cod_autoria = models.AutoField(primary_key=True)
     cod_autor = models.IntegerField()
     cod_materia = models.IntegerField()
@@ -130,7 +130,7 @@ class _Autoria(models.Model):
         unique_together = (('cod_autor', 'cod_materia'),)
 
 
-class _Bancada(models.Model):
+class S3_Bancada(models.Model):
     cod_bancada = models.AutoField(primary_key=True)
     num_legislatura = models.IntegerField()
     cod_partido = models.IntegerField(blank=True, null=True)
@@ -145,7 +145,7 @@ class _Bancada(models.Model):
         db_table = 'bancada'
 
 
-class _Buscas(models.Model):
+class S3_Buscas(models.Model):
     termo = models.TextField()
     timestamp = models.DateTimeField()
     remote_addr = models.CharField(max_length=100)
@@ -158,7 +158,7 @@ class _Buscas(models.Model):
         db_table = 'buscas'
 
 
-class _CargoBancada(models.Model):
+class S3_CargoBancada(models.Model):
     cod_cargo = models.AutoField(primary_key=True)
     des_cargo = models.CharField(max_length=50, blank=True, null=True)
     ind_unico = models.IntegerField()
@@ -169,7 +169,7 @@ class _CargoBancada(models.Model):
         db_table = 'cargo_bancada'
 
 
-class _CargoComissao(models.Model):
+class S3_CargoComissao(models.Model):
     cod_cargo = models.AutoField(primary_key=True)
     des_cargo = models.CharField(max_length=50)
     ind_unico = models.IntegerField()
@@ -180,7 +180,7 @@ class _CargoComissao(models.Model):
         db_table = 'cargo_comissao'
 
 
-class _CargoMesa(models.Model):
+class S3_CargoMesa(models.Model):
     cod_cargo = models.AutoField(primary_key=True)
     des_cargo = models.CharField(max_length=50)
     ind_unico = models.IntegerField()
@@ -191,7 +191,7 @@ class _CargoMesa(models.Model):
         db_table = 'cargo_mesa'
 
 
-class _Coligacao(models.Model):
+class S3_Coligacao(models.Model):
     cod_coligacao = models.AutoField(primary_key=True)
     num_legislatura = models.IntegerField()
     nom_coligacao = models.CharField(max_length=50)
@@ -203,7 +203,7 @@ class _Coligacao(models.Model):
         db_table = 'coligacao'
 
 
-class _Comissao(models.Model):
+class S3_Comissao(models.Model):
     cod_comissao = models.AutoField(primary_key=True)
     tip_comissao = models.IntegerField()
     nom_comissao = models.CharField(max_length=60)
@@ -233,7 +233,7 @@ class _Comissao(models.Model):
         db_table = 'comissao'
 
 
-class _ComposicaoBancada(models.Model):
+class S3_ComposicaoBancada(models.Model):
     cod_comp_bancada = models.AutoField(primary_key=True)
     cod_parlamentar = models.IntegerField()
     cod_bancada = models.IntegerField()
@@ -251,7 +251,7 @@ class _ComposicaoBancada(models.Model):
         db_table = 'composicao_bancada'
 
 
-class _ComposicaoColigacao(models.Model):
+class S3_ComposicaoColigacao(models.Model):
     cod_partido = models.IntegerField()
     cod_coligacao = models.IntegerField()
     ind_excluido = models.IntegerField()
@@ -262,7 +262,7 @@ class _ComposicaoColigacao(models.Model):
         unique_together = (('cod_partido', 'cod_coligacao'),)
 
 
-class _ComposicaoComissao(models.Model):
+class S3_ComposicaoComissao(models.Model):
     cod_comp_comissao = models.AutoField(primary_key=True)
     cod_parlamentar = models.IntegerField()
     cod_comissao = models.IntegerField()
@@ -281,7 +281,7 @@ class _ComposicaoComissao(models.Model):
         db_table = 'composicao_comissao'
 
 
-class _ComposicaoMesa(models.Model):
+class S3_ComposicaoMesa(models.Model):
     cod_composicao = models.AutoField(primary_key=True)
     cod_parlamentar = models.IntegerField()
     cod_sessao_leg = models.IntegerField()
@@ -296,7 +296,7 @@ class _ComposicaoMesa(models.Model):
             ('cod_parlamentar', 'cod_periodo_comp', 'cod_cargo', 'cod_sessao_leg'),)
 
 
-class _CronometroAparte(models.Model):
+class S3_CronometroAparte(models.Model):
     int_reset = models.IntegerField()
     int_start = models.IntegerField()
     int_stop = models.IntegerField()
@@ -306,7 +306,7 @@ class _CronometroAparte(models.Model):
         db_table = 'cronometro_aparte'
 
 
-class _CronometroDiscurso(models.Model):
+class S3_CronometroDiscurso(models.Model):
     int_reset = models.IntegerField()
     int_start = models.IntegerField()
     int_stop = models.IntegerField()
@@ -316,7 +316,7 @@ class _CronometroDiscurso(models.Model):
         db_table = 'cronometro_discurso'
 
 
-class _CronometroOrdem(models.Model):
+class S3_CronometroOrdem(models.Model):
     int_reset = models.IntegerField()
     int_start = models.IntegerField()
     int_stop = models.IntegerField()
@@ -326,7 +326,7 @@ class _CronometroOrdem(models.Model):
         db_table = 'cronometro_ordem'
 
 
-class _Dependente(models.Model):
+class S3_Dependente(models.Model):
     cod_dependente = models.AutoField(primary_key=True)
     tip_dependente = models.IntegerField()
     cod_parlamentar = models.IntegerField()
@@ -343,7 +343,7 @@ class _Dependente(models.Model):
         db_table = 'dependente'
 
 
-class _DespachoInicial(models.Model):
+class S3_DespachoInicial(models.Model):
     cod_materia = models.IntegerField()
     num_ordem = models.IntegerField()
     cod_comissao = models.IntegerField()
@@ -355,7 +355,7 @@ class _DespachoInicial(models.Model):
         unique_together = (('cod_materia', 'num_ordem'),)
 
 
-class _Dispositivo(models.Model):
+class S3_Dispositivo(models.Model):
     cod_dispositivo = models.AutoField(primary_key=True)
     num_ordem = models.IntegerField()
     num_ordem_bloco_atualizador = models.IntegerField()
@@ -391,7 +391,7 @@ class _Dispositivo(models.Model):
                                                         'num_dispositivo_3', 'num_dispositivo_4', 'num_dispositivo_5', 'cod_tipo_dispositivo', 'cod_dispositivo_pai', 'cod_publicacao'),)
 
 
-class _DocumentoAcessorio(models.Model):
+class S3_DocumentoAcessorio(models.Model):
     cod_documento = models.AutoField(primary_key=True)
     cod_materia = models.IntegerField()
     tip_documento = models.IntegerField()
@@ -409,7 +409,7 @@ class _DocumentoAcessorio(models.Model):
         db_table = 'documento_acessorio'
 
 
-class _DocumentoAcessorioAdministrativo(models.Model):
+class S3_DocumentoAcessorioAdministrativo(models.Model):
     cod_documento_acessorio = models.AutoField(primary_key=True)
     cod_documento = models.IntegerField()
     tip_documento = models.IntegerField()
@@ -427,7 +427,7 @@ class _DocumentoAcessorioAdministrativo(models.Model):
         db_table = 'documento_acessorio_administrativo'
 
 
-class _DocumentoAcessorioParecer(models.Model):
+class S3_DocumentoAcessorioParecer(models.Model):
     cod_documento_acessorio = models.AutoField(primary_key=True)
     cod_documento = models.IntegerField()
     tip_documento = models.IntegerField()
@@ -445,7 +445,7 @@ class _DocumentoAcessorioParecer(models.Model):
         db_table = 'documento_acessorio_parecer'
 
 
-class _DocumentoAdministrativo(models.Model):
+class S3_DocumentoAdministrativo(models.Model):
     cod_documento = models.AutoField(primary_key=True)
     tip_documento = models.IntegerField()
     num_documento = models.IntegerField()
@@ -466,7 +466,7 @@ class _DocumentoAdministrativo(models.Model):
         db_table = 'documento_administrativo'
 
 
-class _ExpedienteMateria(models.Model):
+class S3_ExpedienteMateria(models.Model):
     cod_ordem = models.AutoField(primary_key=True)
     cod_sessao_plen = models.IntegerField()
     cod_materia = models.IntegerField()
@@ -485,7 +485,7 @@ class _ExpedienteMateria(models.Model):
         db_table = 'expediente_materia'
 
 
-class _ExpedienteSessaoPlenaria(models.Model):
+class S3_ExpedienteSessaoPlenaria(models.Model):
     cod_exp = models.AutoField(primary_key=True)
 
     cod_sessao_plen = models.IntegerField()
@@ -499,7 +499,7 @@ class _ExpedienteSessaoPlenaria(models.Model):
         unique_together = (('cod_sessao_plen', 'cod_expediente'),)
 
 
-class _Filiacao(models.Model):
+class S3_Filiacao(models.Model):
     cod_filiacao = models.AutoField(primary_key=True)
     dat_filiacao = models.DateField()
     cod_parlamentar = models.IntegerField()
@@ -514,7 +514,7 @@ class _Filiacao(models.Model):
         unique_together = (('dat_filiacao', 'cod_parlamentar', 'cod_partido'),)
 
 
-class _Instituicao(models.Model):
+class S3_Instituicao(models.Model):
     cod_instituicao = models.AutoField(primary_key=True)
     tip_instituicao = models.IntegerField()
     nom_instituicao = models.CharField(max_length=200, blank=True, null=True)
@@ -544,7 +544,7 @@ class _Instituicao(models.Model):
         db_table = 'instituicao'
 
 
-class _LegislacaoCitada(models.Model):
+class S3_LegislacaoCitada(models.Model):
     cod_legis_citada = models.AutoField(primary_key=True)
     cod_materia = models.IntegerField()
     cod_norma = models.IntegerField()
@@ -568,7 +568,7 @@ class _LegislacaoCitada(models.Model):
         unique_together = (('cod_materia', 'cod_norma'),)
 
 
-class _Legislatura(models.Model):
+class S3_Legislatura(models.Model):
     num_legislatura = models.IntegerField(primary_key=True)
     dat_inicio = models.DateField()
     dat_fim = models.DateField()
@@ -580,7 +580,7 @@ class _Legislatura(models.Model):
         db_table = 'legislatura'
 
 
-class _LexmlRegistroProvedor(models.Model):
+class S3_LexmlRegistroProvedor(models.Model):
     cod_provedor = models.AutoField(primary_key=True)
     id_provedor = models.IntegerField(blank=True, null=True)
     nom_provedor = models.CharField(max_length=255, blank=True, null=True)
@@ -596,7 +596,7 @@ class _LexmlRegistroProvedor(models.Model):
         db_table = 'lexml_registro_provedor'
 
 
-class _LexmlRegistroPublicador(models.Model):
+class S3_LexmlRegistroPublicador(models.Model):
     cod_publicador = models.AutoField(primary_key=True)
     id_publicador = models.IntegerField(blank=True, null=True)
     nom_publicador = models.CharField(max_length=255, blank=True, null=True)
@@ -611,7 +611,7 @@ class _LexmlRegistroPublicador(models.Model):
         db_table = 'lexml_registro_publicador'
 
 
-class _Localidade(models.Model):
+class S3_Localidade(models.Model):
     cod_localidade = models.IntegerField(primary_key=True)
     nom_localidade = models.CharField(max_length=50, blank=True, null=True)
     nom_localidade_pesq = models.CharField(
@@ -626,7 +626,7 @@ class _Localidade(models.Model):
         db_table = 'localidade'
 
 
-class _Mandato(models.Model):
+class S3_Mandato(models.Model):
     cod_mandato = models.AutoField(primary_key=True)
     cod_parlamentar = models.IntegerField()
     tip_afastamento = models.IntegerField(blank=True, null=True)
@@ -646,7 +646,7 @@ class _Mandato(models.Model):
         db_table = 'mandato'
 
 
-class _MateriaAssunto(models.Model):
+class S3_MateriaAssunto(models.Model):
     cod_assunto = models.IntegerField()
     cod_materia = models.IntegerField()
     ind_excluido = models.IntegerField()
@@ -657,7 +657,7 @@ class _MateriaAssunto(models.Model):
         unique_together = (('cod_assunto', 'cod_materia'),)
 
 
-class _MateriaLegislativa(models.Model):
+class S3_MateriaLegislativa(models.Model):
     cod_materia = models.AutoField(primary_key=True)
     tip_id_basica = models.IntegerField()
     num_protocolo = models.IntegerField(blank=True, null=True)
@@ -697,7 +697,7 @@ class _MateriaLegislativa(models.Model):
         db_table = 'materia_legislativa'
 
 
-class _MesaSessaoPlenaria(models.Model):
+class S3_MesaSessaoPlenaria(models.Model):
     cod_integrante = models.AutoField(primary_key=True)
     cod_cargo = models.IntegerField()
     cod_sessao_leg = models.IntegerField()
@@ -712,7 +712,7 @@ class _MesaSessaoPlenaria(models.Model):
                             'cod_parlamentar', 'cod_sessao_plen'),)
 
 
-class _NivelInstrucao(models.Model):
+class S3_NivelInstrucao(models.Model):
     cod_nivel_instrucao = models.AutoField(primary_key=True)
     des_nivel_instrucao = models.CharField(max_length=50)
     ind_excluido = models.IntegerField()
@@ -722,7 +722,7 @@ class _NivelInstrucao(models.Model):
         db_table = 'nivel_instrucao'
 
 
-class _NormaJuridica(models.Model):
+class S3_NormaJuridica(models.Model):
     cod_norma = models.AutoField(primary_key=True)
     tip_norma = models.IntegerField()
     cod_materia = models.IntegerField(blank=True, null=True)
@@ -751,7 +751,7 @@ class _NormaJuridica(models.Model):
         db_table = 'norma_juridica'
 
 
-class _Numeracao(models.Model):
+class S3_Numeracao(models.Model):
     cod_materia = models.IntegerField()
     num_ordem = models.IntegerField()
     tip_materia = models.IntegerField()
@@ -766,7 +766,7 @@ class _Numeracao(models.Model):
         unique_together = (('cod_materia', 'num_ordem'),)
 
 
-class _Oradores(models.Model):
+class S3_Oradores(models.Model):
     cod_sessao_plen = models.IntegerField()
     cod_parlamentar = models.IntegerField()
     num_ordem = models.IntegerField()
@@ -779,7 +779,7 @@ class _Oradores(models.Model):
         unique_together = (('cod_sessao_plen', 'cod_parlamentar'),)
 
 
-class _OradoresExpediente(models.Model):
+class S3_OradoresExpediente(models.Model):
     cod_sessao_plen = models.IntegerField()
     cod_parlamentar = models.IntegerField()
     num_ordem = models.IntegerField()
@@ -792,7 +792,7 @@ class _OradoresExpediente(models.Model):
         unique_together = (('cod_sessao_plen', 'cod_parlamentar'),)
 
 
-class _OrdemDia(models.Model):
+class S3_OrdemDia(models.Model):
     cod_ordem = models.AutoField(primary_key=True)
     cod_sessao_plen = models.IntegerField()
     cod_materia = models.IntegerField()
@@ -812,7 +812,7 @@ class _OrdemDia(models.Model):
         db_table = 'ordem_dia'
 
 
-class _OrdemDiaPresenca(models.Model):
+class S3_OrdemDiaPresenca(models.Model):
     cod_parlamentar = models.IntegerField()
     ind_excluido = models.IntegerField()
     dat_ordem = models.DateField()
@@ -830,7 +830,7 @@ class _OrdemDiaPresenca(models.Model):
         db_table = 'ordem_dia_presenca'
 
 
-class _Orgao(models.Model):
+class S3_Orgao(models.Model):
     cod_orgao = models.AutoField(primary_key=True)
     nom_orgao = models.CharField(max_length=60)
     sgl_orgao = models.CharField(max_length=10)
@@ -844,7 +844,7 @@ class _Orgao(models.Model):
         db_table = 'orgao'
 
 
-class _Origem(models.Model):
+class S3_Origem(models.Model):
     cod_origem = models.AutoField(primary_key=True)
     sgl_origem = models.CharField(max_length=10)
     nom_origem = models.CharField(max_length=50)
@@ -855,7 +855,7 @@ class _Origem(models.Model):
         db_table = 'origem'
 
 
-class _Parecer(models.Model):
+class S3_Parecer(models.Model):
     cod_relatoria = models.IntegerField()
     cod_materia = models.IntegerField()
     tip_conclusao = models.CharField(max_length=3, blank=True, null=True)
@@ -869,7 +869,7 @@ class _Parecer(models.Model):
         unique_together = (('cod_relatoria', 'cod_materia'),)
 
 
-class _ParecerProcuradoria(models.Model):
+class S3_ParecerProcuradoria(models.Model):
     cod_documento = models.AutoField(primary_key=True)
     tip_documento = models.IntegerField()
     num_documento = models.IntegerField()
@@ -890,7 +890,7 @@ class _ParecerProcuradoria(models.Model):
         db_table = 'parecer_procuradoria'
 
 
-class _Parlamentar(models.Model):
+class S3_Parlamentar(models.Model):
     cod_parlamentar = models.AutoField(primary_key=True)
     cod_nivel_instrucao = models.IntegerField(blank=True, null=True)
     tip_situacao_militar = models.IntegerField(blank=True, null=True)
@@ -929,7 +929,7 @@ class _Parlamentar(models.Model):
         db_table = 'parlamentar'
 
 
-class _Partido(models.Model):
+class S3_Partido(models.Model):
     cod_partido = models.AutoField(primary_key=True)
     sgl_partido = models.CharField(max_length=9, blank=True, null=True)
     nom_partido = models.CharField(max_length=50, blank=True, null=True)
@@ -942,7 +942,7 @@ class _Partido(models.Model):
         db_table = 'partido'
 
 
-class _PartidoOld(models.Model):
+class S3_PartidoOld(models.Model):
     cod_partido = models.AutoField(primary_key=True)
     sgl_partido = models.CharField(max_length=9)
     nom_partido = models.CharField(max_length=50)
@@ -955,7 +955,7 @@ class _PartidoOld(models.Model):
         db_table = 'partido_old'
 
 
-class _PeriodoCompComissao(models.Model):
+class S3_PeriodoCompComissao(models.Model):
     cod_periodo_comp = models.AutoField(primary_key=True)
     dat_inicio_periodo = models.DateField()
     dat_fim_periodo = models.DateField(blank=True, null=True)
@@ -966,7 +966,7 @@ class _PeriodoCompComissao(models.Model):
         db_table = 'periodo_comp_comissao'
 
 
-class _PeriodoCompMesa(models.Model):
+class S3_PeriodoCompMesa(models.Model):
     cod_periodo_comp = models.AutoField(primary_key=True)
     num_legislatura = models.IntegerField()
     dat_inicio_periodo = models.DateField()
@@ -978,7 +978,7 @@ class _PeriodoCompMesa(models.Model):
         db_table = 'periodo_comp_mesa'
 
 
-class _PresencaEndereco(models.Model):
+class S3_PresencaEndereco(models.Model):
     cod_presenca_endereco = models.AutoField(primary_key=True)
     txt_mac_address = models.CharField(max_length=45)
     txt_ip_address = models.CharField(max_length=45)
@@ -989,7 +989,7 @@ class _PresencaEndereco(models.Model):
         db_table = 'presenca_endereco'
 
 
-class _Proposicao(models.Model):
+class S3_Proposicao(models.Model):
     cod_proposicao = models.AutoField(primary_key=True)
     cod_materia = models.IntegerField(blank=True, null=True)
     cod_autor = models.IntegerField()
@@ -1009,7 +1009,7 @@ class _Proposicao(models.Model):
         db_table = 'proposicao'
 
 
-class _PropsPainel(models.Model):
+class S3_PropsPainel(models.Model):
     cod_props_painel = models.IntegerField(primary_key=True)
     txt_jornal = models.TextField(blank=True, null=True)
     txt_jornal_cor = models.CharField(max_length=45, blank=True, null=True)
@@ -1083,7 +1083,7 @@ class _PropsPainel(models.Model):
         db_table = 'props_painel'
 
 
-class _Protocolo(models.Model):
+class S3_Protocolo(models.Model):
     cod_protocolo = models.AutoField(primary_key=True)
     num_protocolo = models.IntegerField(blank=True, null=True)
     ano_protocolo = models.SmallIntegerField()
@@ -1114,7 +1114,7 @@ class _Protocolo(models.Model):
         db_table = 'protocolo'
 
 
-class _RegimeTramitacao(models.Model):
+class S3_RegimeTramitacao(models.Model):
     cod_regime_tramitacao = models.AutoField(primary_key=True)
     des_regime_tramitacao = models.CharField(max_length=50)
     ind_excluido = models.IntegerField()
@@ -1124,7 +1124,7 @@ class _RegimeTramitacao(models.Model):
         db_table = 'regime_tramitacao'
 
 
-class _RegistroPresencaOrdem(models.Model):
+class S3_RegistroPresencaOrdem(models.Model):
     cod_registro_pre = models.AutoField(primary_key=True)
     cod_sessao_plen = models.IntegerField()
     num_id_quorum = models.IntegerField()
@@ -1138,7 +1138,7 @@ class _RegistroPresencaOrdem(models.Model):
         db_table = 'registro_presenca_ordem'
 
 
-class _RegistroPresencaSessao(models.Model):
+class S3_RegistroPresencaSessao(models.Model):
     cod_registro_pre = models.AutoField(primary_key=True)
     cod_sessao_plen = models.IntegerField()
     num_id_quorum = models.IntegerField()
@@ -1152,7 +1152,7 @@ class _RegistroPresencaSessao(models.Model):
         db_table = 'registro_presenca_sessao'
 
 
-class _RegistroVotacao(models.Model):
+class S3_RegistroVotacao(models.Model):
     cod_votacao = models.AutoField(primary_key=True)
     tip_resultado_votacao = models.IntegerField()
     cod_materia = models.IntegerField()
@@ -1169,7 +1169,7 @@ class _RegistroVotacao(models.Model):
         db_table = 'registro_votacao'
 
 
-class _RegistroVotacaoParlamentar(models.Model):
+class S3_RegistroVotacaoParlamentar(models.Model):
     cod_vot_parlamentar = models.AutoField(primary_key=True)
     cod_votacao = models.IntegerField()
     cod_parlamentar = models.IntegerField()
@@ -1183,7 +1183,7 @@ class _RegistroVotacaoParlamentar(models.Model):
         unique_together = (('cod_votacao', 'cod_parlamentar'),)
 
 
-class _Relatoria(models.Model):
+class S3_Relatoria(models.Model):
     cod_relatoria = models.AutoField(primary_key=True)
     cod_materia = models.IntegerField()
     cod_parlamentar = models.IntegerField()
@@ -1201,7 +1201,7 @@ class _Relatoria(models.Model):
         db_table = 'relatoria'
 
 
-class _ReuniaoComissao(models.Model):
+class S3_ReuniaoComissao(models.Model):
     cod_reuniao = models.AutoField(primary_key=True)
     cod_comissao = models.IntegerField()
     num_reuniao = models.IntegerField()
@@ -1215,7 +1215,7 @@ class _ReuniaoComissao(models.Model):
         db_table = 'reuniao_comissao'
 
 
-class _SessaoLegislativa(models.Model):
+class S3_SessaoLegislativa(models.Model):
     cod_sessao_leg = models.AutoField(primary_key=True)
     num_legislatura = models.IntegerField()
     num_sessao_leg = models.IntegerField()
@@ -1231,7 +1231,7 @@ class _SessaoLegislativa(models.Model):
         db_table = 'sessao_legislativa'
 
 
-class _SessaoPlenaria(models.Model):
+class S3_SessaoPlenaria(models.Model):
     cod_sessao_plen = models.AutoField(primary_key=True)
     cod_andamento_sessao = models.IntegerField(blank=True, null=True)
     tip_sessao = models.IntegerField()
@@ -1254,7 +1254,7 @@ class _SessaoPlenaria(models.Model):
         db_table = 'sessao_plenaria'
 
 
-class _SessaoPlenariaLog(models.Model):
+class S3_SessaoPlenariaLog(models.Model):
     cod_sessao_plen_log = models.AutoField(primary_key=True)
     cod_sessao_plen = models.IntegerField(blank=True, null=True)
     txt_login = models.CharField(max_length=45)
@@ -1270,7 +1270,7 @@ class _SessaoPlenariaLog(models.Model):
         db_table = 'sessao_plenaria_log'
 
 
-class _SessaoPlenariaPresenca(models.Model):
+class S3_SessaoPlenariaPresenca(models.Model):
     cod_presenca = models.AutoField(primary_key=True)
     cod_sessao_plen = models.IntegerField()
     cod_parlamentar = models.IntegerField()
@@ -1287,7 +1287,7 @@ class _SessaoPlenariaPresenca(models.Model):
         unique_together = (('cod_sessao_plen', 'cod_parlamentar'),)
 
 
-class _SpdoUsers(models.Model):
+class S3_SpdoUsers(models.Model):
     cod_spdo_users = models.AutoField(primary_key=True)
     txt_login_sapl = models.CharField(max_length=45)
     txt_login_spdo = models.CharField(max_length=45)
@@ -1299,7 +1299,7 @@ class _SpdoUsers(models.Model):
         db_table = 'spdo_users'
 
 
-class _StatusTramitacao(models.Model):
+class S3_StatusTramitacao(models.Model):
     cod_status = models.AutoField(primary_key=True)
     sgl_status = models.CharField(max_length=10)
     des_status = models.CharField(max_length=60)
@@ -1312,7 +1312,7 @@ class _StatusTramitacao(models.Model):
         db_table = 'status_tramitacao'
 
 
-class _StatusTramitacaoAdministrativo(models.Model):
+class S3_StatusTramitacaoAdministrativo(models.Model):
     cod_status = models.AutoField(primary_key=True)
     sgl_status = models.CharField(max_length=10)
     des_status = models.CharField(max_length=60)
@@ -1325,7 +1325,7 @@ class _StatusTramitacaoAdministrativo(models.Model):
         db_table = 'status_tramitacao_administrativo'
 
 
-class _StatusTramitacaoParecer(models.Model):
+class S3_StatusTramitacaoParecer(models.Model):
     cod_status = models.AutoField(primary_key=True)
     sgl_status = models.CharField(max_length=10)
     des_status = models.CharField(max_length=60)
@@ -1338,7 +1338,7 @@ class _StatusTramitacaoParecer(models.Model):
         db_table = 'status_tramitacao_parecer'
 
 
-class _TipoAfastamento(models.Model):
+class S3_TipoAfastamento(models.Model):
     tip_afastamento = models.AutoField(primary_key=True)
     des_afastamento = models.CharField(max_length=50)
     ind_afastamento = models.IntegerField()
@@ -1351,7 +1351,7 @@ class _TipoAfastamento(models.Model):
         db_table = 'tipo_afastamento'
 
 
-class _TipoAutor(models.Model):
+class S3_TipoAutor(models.Model):
     tip_autor = models.IntegerField(primary_key=True)
     des_tipo_autor = models.CharField(max_length=50)
     ind_excluido = models.IntegerField()
@@ -1361,7 +1361,7 @@ class _TipoAutor(models.Model):
         db_table = 'tipo_autor'
 
 
-class _TipoComissao(models.Model):
+class S3_TipoComissao(models.Model):
     tip_comissao = models.AutoField(primary_key=True)
     nom_tipo_comissao = models.CharField(max_length=50)
     sgl_natureza_comissao = models.CharField(max_length=1)
@@ -1375,7 +1375,7 @@ class _TipoComissao(models.Model):
         db_table = 'tipo_comissao'
 
 
-class _TipoDependente(models.Model):
+class S3_TipoDependente(models.Model):
     tip_dependente = models.AutoField(primary_key=True)
     des_tipo_dependente = models.CharField(max_length=50)
     ind_excluido = models.IntegerField()
@@ -1385,7 +1385,7 @@ class _TipoDependente(models.Model):
         db_table = 'tipo_dependente'
 
 
-class _TipoDispositivo(models.Model):
+class S3_TipoDispositivo(models.Model):
     tip_dispositivo = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=50)
     class_css = models.CharField(max_length=20)
@@ -1413,7 +1413,7 @@ class _TipoDispositivo(models.Model):
         db_table = 'tipo_dispositivo'
 
 
-class _TipoDocumento(models.Model):
+class S3_TipoDocumento(models.Model):
     tip_documento = models.AutoField(primary_key=True)
     des_tipo_documento = models.CharField(max_length=50)
     ind_excluido = models.IntegerField()
@@ -1423,7 +1423,7 @@ class _TipoDocumento(models.Model):
         db_table = 'tipo_documento'
 
 
-class _TipoDocumentoAdministrativo(models.Model):
+class S3_TipoDocumentoAdministrativo(models.Model):
     tip_documento = models.AutoField(primary_key=True)
     sgl_tipo_documento = models.CharField(max_length=5)
     des_tipo_documento = models.CharField(max_length=50)
@@ -1434,7 +1434,7 @@ class _TipoDocumentoAdministrativo(models.Model):
         db_table = 'tipo_documento_administrativo'
 
 
-class _TipoExpediente(models.Model):
+class S3_TipoExpediente(models.Model):
     cod_expediente = models.AutoField(primary_key=True)
     nom_expediente = models.CharField(max_length=100)
     ind_excluido = models.IntegerField()
@@ -1444,7 +1444,7 @@ class _TipoExpediente(models.Model):
         db_table = 'tipo_expediente'
 
 
-class _TipoFimRelatoria(models.Model):
+class S3_TipoFimRelatoria(models.Model):
     tip_fim_relatoria = models.AutoField(primary_key=True)
     des_fim_relatoria = models.CharField(max_length=50)
     ind_excluido = models.IntegerField()
@@ -1454,7 +1454,7 @@ class _TipoFimRelatoria(models.Model):
         db_table = 'tipo_fim_relatoria'
 
 
-class _TipoInstituicao(models.Model):
+class S3_TipoInstituicao(models.Model):
     tip_instituicao = models.AutoField(primary_key=True)
     nom_tipo_instituicao = models.CharField(
         max_length=80, blank=True, null=True)
@@ -1465,7 +1465,7 @@ class _TipoInstituicao(models.Model):
         db_table = 'tipo_instituicao'
 
 
-class _TipoMateriaLegislativa(models.Model):
+class S3_TipoMateriaLegislativa(models.Model):
     ord_tipo_materia = models.IntegerField()
     tip_materia = models.AutoField(primary_key=True)
     sgl_tipo_materia = models.CharField(max_length=5)
@@ -1478,7 +1478,7 @@ class _TipoMateriaLegislativa(models.Model):
         db_table = 'tipo_materia_legislativa'
 
 
-class _TipoNormaJuridica(models.Model):
+class S3_TipoNormaJuridica(models.Model):
     tip_norma = models.AutoField(primary_key=True)
     sgl_tipo_norma = models.CharField(max_length=3)
     des_tipo_norma = models.CharField(max_length=50)
@@ -1490,7 +1490,7 @@ class _TipoNormaJuridica(models.Model):
         db_table = 'tipo_norma_juridica'
 
 
-class _TipoParecer(models.Model):
+class S3_TipoParecer(models.Model):
     tip_documento = models.AutoField(primary_key=True)
     sgl_tipo_documento = models.CharField(max_length=5)
     des_tipo_documento = models.CharField(max_length=50)
@@ -1501,7 +1501,7 @@ class _TipoParecer(models.Model):
         db_table = 'tipo_parecer'
 
 
-class _TipoProposicao(models.Model):
+class S3_TipoProposicao(models.Model):
     tip_proposicao = models.AutoField(primary_key=True)
     des_tipo_proposicao = models.CharField(max_length=50)
     ind_mat_ou_doc = models.CharField(max_length=1)
@@ -1514,7 +1514,7 @@ class _TipoProposicao(models.Model):
         db_table = 'tipo_proposicao'
 
 
-class _TipoResultadoVotacao(models.Model):
+class S3_TipoResultadoVotacao(models.Model):
     tip_resultado_votacao = models.AutoField(primary_key=True)
     nom_resultado = models.CharField(max_length=100)
     ind_excluido = models.IntegerField()
@@ -1524,7 +1524,7 @@ class _TipoResultadoVotacao(models.Model):
         db_table = 'tipo_resultado_votacao'
 
 
-class _TipoSessaoPlenaria(models.Model):
+class S3_TipoSessaoPlenaria(models.Model):
     tip_sessao = models.AutoField(primary_key=True)
     nom_sessao = models.CharField(max_length=30)
     ind_excluido = models.IntegerField()
@@ -1535,7 +1535,7 @@ class _TipoSessaoPlenaria(models.Model):
         db_table = 'tipo_sessao_plenaria'
 
 
-class _TipoSituacaoMateria(models.Model):
+class S3_TipoSituacaoMateria(models.Model):
     tip_situacao_materia = models.AutoField(primary_key=True)
     des_tipo_situacao = models.CharField(max_length=100, blank=True, null=True)
     ind_excluido = models.IntegerField()
@@ -1545,7 +1545,7 @@ class _TipoSituacaoMateria(models.Model):
         db_table = 'tipo_situacao_materia'
 
 
-class _TipoSituacaoMilitar(models.Model):
+class S3_TipoSituacaoMilitar(models.Model):
     tip_situacao_militar = models.IntegerField(primary_key=True)
     des_tipo_situacao = models.CharField(max_length=50)
     ind_excluido = models.IntegerField()
@@ -1555,7 +1555,7 @@ class _TipoSituacaoMilitar(models.Model):
         db_table = 'tipo_situacao_militar'
 
 
-class _TipoSituacaoNorma(models.Model):
+class S3_TipoSituacaoNorma(models.Model):
     tip_situacao_norma = models.AutoField(primary_key=True)
     des_tipo_situacao = models.CharField(max_length=100, blank=True, null=True)
     ind_excluido = models.IntegerField()
@@ -1565,7 +1565,7 @@ class _TipoSituacaoNorma(models.Model):
         db_table = 'tipo_situacao_norma'
 
 
-class _Tramitacao(models.Model):
+class S3_Tramitacao(models.Model):
     cod_tramitacao = models.AutoField(primary_key=True)
     cod_status = models.IntegerField(blank=True, null=True)
     cod_materia = models.IntegerField()
@@ -1585,7 +1585,7 @@ class _Tramitacao(models.Model):
         db_table = 'tramitacao'
 
 
-class _TramitacaoAdministrativo(models.Model):
+class S3_TramitacaoAdministrativo(models.Model):
     cod_tramitacao = models.AutoField(primary_key=True)
     cod_documento = models.IntegerField()
     dat_tramitacao = models.DateField(blank=True, null=True)
@@ -1603,7 +1603,7 @@ class _TramitacaoAdministrativo(models.Model):
         db_table = 'tramitacao_administrativo'
 
 
-class _TramitacaoParecer(models.Model):
+class S3_TramitacaoParecer(models.Model):
     cod_tramitacao = models.AutoField(primary_key=True)
     cod_documento = models.IntegerField()
     dat_tramitacao = models.DateField(blank=True, null=True)
@@ -1621,7 +1621,7 @@ class _TramitacaoParecer(models.Model):
         db_table = 'tramitacao_parecer'
 
 
-class _UnidadeTramitacao(models.Model):
+class S3_UnidadeTramitacao(models.Model):
     cod_unid_tramitacao = models.AutoField(primary_key=True)
     cod_comissao = models.IntegerField(blank=True, null=True)
     cod_orgao = models.IntegerField(blank=True, null=True)
@@ -1635,7 +1635,7 @@ class _UnidadeTramitacao(models.Model):
         db_table = 'unidade_tramitacao'
 
 
-class _VinculoNormaJuridica(models.Model):
+class S3_VinculoNormaJuridica(models.Model):
     cod_vinculo = models.AutoField(primary_key=True)
     cod_norma_referente = models.IntegerField()
     cod_norma_referida = models.IntegerField()
