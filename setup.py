@@ -9,42 +9,6 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 install_requires = [
-    'django>=1.11.19,<2.0',
-    'django-haystack==2.8.1',
-    'django-filter==2.0.0',
-    'djangorestframework==3.9.0',
-    'dj-database-url==0.5.0',
-    'django-braces==1.9.0',
-    'django-crispy-forms==1.7.2',
-    'django-floppyforms==1.7.0',
-    'django-extra-views==0.12.0',
-    'django-model-utils==3.1.2',
-    'django-reversion==3.0.2',
-    'django-reversion-compare==0.8.6'
-    'django-speedinfo==1.4.0',
-    'django-extensions==2.1.4',
-    'django-image-cropping==1.2.0',
-    'django-webpack-loader==0.6.0',
-    'drf-yasg==1.13.0',
-    'easy-thumbnails==2.5',
-    'python-decouple==3.1',
-    'psycopg2-binary==2.7.6.1',
-    'pyyaml==4.2b1',
-    'pytz==2018.9',
-    'rtyaml==0.0.5',
-    'python-magic==0.4.15',
-    'unipath==1.1',
-    'WeasyPrint==44',
-    'gunicorn==19.9.0',
-
-    'textract==1.5.0',
-    'pysolr==3.6.0',
-    'whoosh==2.7.4',
-
-    'channels==2.1.7',
-
-    # 'git+git://github.com/interlegis/trml2pdf.git',
-    # 'git+git://github.com/interlegis/django-admin-bootstrapped',
 ]
 setup(
     name='interlegis-sapl',
